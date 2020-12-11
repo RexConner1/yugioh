@@ -13,7 +13,7 @@ class MonsterZone extends Component {
 
     render() {
         return (
-          <div>
+          <div className="monsterCards">
             <Card image={this.state.zoneImage} />
             <Card image={this.state.zoneImage} />
             <Card image={this.state.zoneImage} />

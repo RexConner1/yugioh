@@ -13,7 +13,7 @@ class MagicTrapZone extends Component {
 
     render() {
         return (
-          <div>
+          <div className="magicTrapCards">
             <Card image={this.state.zoneImage} />
             <Card image={this.state.zoneImage} />
             <Card image={this.state.zoneImage} />

@@ -1,0 +1,6 @@
+.monsterCards {
+    /* display: inline-flex;
+    flex-wrap: wrap; */
+    display: flex;
+    justify-content: space-around;
+}
