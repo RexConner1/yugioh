@@ -18,15 +18,25 @@ class Board extends Component {
     render() {
         return (
           <div>
-              <div className="monsterZone">
+              {/* <FieldSpell /> */}
+              <div className="top monsterZone">
                 <MonsterZone />
               </div>
-              <MagicTrapZone />
-              <Hand />
-              {/* <FieldSpell /> */}
+              <div className="top graveyard">
+                <Graveyard />
+              </div>
+
               {/* <ExtraDeck /> */}
-              <Graveyard />
-              <Deck />
+              <div className="bottom magicTrapZone">
+                <MagicTrapZone />
+              </div>
+              <div className="bottom deck">
+                <Deck />
+              </div>
+
+              <div className="hand">
+                <Hand />
+              </div> 
           </div>
         );
     }
