@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import './Game.css';
+import Board from '../Board/Board';
 
 class Game extends Component {
     constructor() {
@@ -14,7 +15,8 @@ class Game extends Component {
     render() {
         return (
           <div>
-              <h1>Game</h1>
+              <Board />
+              <Board />
           </div>
         );
     }
