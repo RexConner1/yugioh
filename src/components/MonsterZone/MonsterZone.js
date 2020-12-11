@@ -7,18 +7,18 @@ class MonsterZone extends Component {
     constructor() {
         super();
         this.state = {
-
+          zoneImage: "/monsterCardZone.png"
         }
     }
 
     render() {
         return (
           <div>
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+            <Card image={this.state.zoneImage} />
+            <Card image={this.state.zoneImage} />
+            <Card image={this.state.zoneImage} />
+            <Card image={this.state.zoneImage} />
+            <Card image={this.state.zoneImage} />
           </div>
         );
     }

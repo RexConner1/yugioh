@@ -14,6 +14,7 @@ class Card extends Component {
         return (
           <div>
               <h1>Card</h1>
+              <img src={this.props.image ? this.props.image : "/monsterCardZone.png"} alt="monsterCardZone"></img>
           </div>
         );
     }
