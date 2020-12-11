@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import './Hand.css';
-import Card from '../Card/Card'
+// import Card from '../Card/Card'
 
 class Hand extends Component {
     constructor() {

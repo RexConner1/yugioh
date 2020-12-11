@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 
-import './Deck.css';
-// import Card from '../Card/Card'
+import './EditDecks.css';
 
-class Deck extends Component {
+class EditDecks extends Component {
     constructor() {
         super();
         this.state = {
@@ -20,4 +19,4 @@ class Deck extends Component {
     }
 }
 
-export default Deck;
+export default EditDecks;

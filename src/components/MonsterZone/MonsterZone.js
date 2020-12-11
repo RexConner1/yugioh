@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import './MonsterZone.css';
+import Card from '../Card/Card'
 
 class MonsterZone extends Component {
     constructor() {

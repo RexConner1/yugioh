@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import './MagicTrapZone.css';
+import Card from '../Card/Card'
 
 class MagicTrapZone extends Component {
     constructor() {

@@ -7,8 +7,8 @@ class Game extends Component {
     constructor() {
         super();
         this.state = {
-            currentPlayer = 0,
-            gamePhase = ""  //Draw, Standby, Main1, Battle, Main2, End
+            currentPlayer: 0,
+            gamePhase: ""  //Draw, Standby, Main1, Battle, Main2, End
         }
     }
 
