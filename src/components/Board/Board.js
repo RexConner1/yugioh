@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 
 import './Board.css';
+import MonsterZone from '../MonsterZone/MonsterZone'
+import MagicTrapZone from '../MagicTrapZone/MagicTrapZone'
+import Hand from '../Hand/Hand'
+import Graveyard from '../Graveyard/Graveyard'
+import Deck from '../Deck/Deck'
 
 class Board extends Component {
     constructor() {
@@ -13,7 +18,13 @@ class Board extends Component {
     render() {
         return (
           <div>
-              <h1>Board</h1>
+              <MonsterZone />
+              <MagicTrapZone />
+              <Hand />
+              {/* <FieldSpell /> */}
+              {/* <ExtraDeck /> */}
+              <Graveyard />
+              <Deck />
           </div>
         );
     }
