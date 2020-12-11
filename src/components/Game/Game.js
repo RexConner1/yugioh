@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import './Game.css';
-import Board from '../Board/Board';
+import Player from '../Player/Player'
 
 class Game extends Component {
     constructor() {
@@ -53,8 +53,8 @@ class Game extends Component {
     render() {
         return (
           <div>
-              <Board draw={this.executeDraw} />
-              <Board draw={this.executeDraw} />
+              <Player draw={this.executeDraw} />
+              <Player draw={this.executeDraw} />
           </div>
         );
     }
