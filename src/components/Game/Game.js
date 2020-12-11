@@ -12,10 +12,34 @@ class Game extends Component {
         }
     }
 
+    executeDraw(e) {
+        console.log('Draw')
+    }
+
+    executeStandby(e) {
+        console.log('Standby')
+    }
+    
+    executeMain1(e) {
+        console.log('Main1')
+    }
+
+    executeBattle(e) {
+        console.log('Battle')
+    }
+
+    executeMain2(e) {
+        console.log('Main2')
+    }
+
+    executeEnd(e) {
+        console.log('End')
+    }
+
     render() {
         return (
           <div>
-              <Board />
+              <Board draw={this.executeDraw} />
               <Board />
           </div>
         );

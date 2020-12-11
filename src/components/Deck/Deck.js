@@ -13,7 +13,7 @@ class Deck extends Component {
 
     render() {
         return (
-          <div>
+          <div onClick={(e) => this.props.draw(e)}>
               <Card image={this.state.image} />
           </div>
         );

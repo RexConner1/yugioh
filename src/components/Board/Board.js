@@ -31,7 +31,7 @@ class Board extends Component {
                 <MagicTrapZone />
               </div>
               <div className="bottom deck">
-                <Deck />
+                <Deck draw={this.props.draw} />
               </div>
 
               <div className="hand">
