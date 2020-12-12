@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import './Board.css';
 import MonsterZone from '../MonsterZone/MonsterZone'
 import MagicTrapZone from '../MagicTrapZone/MagicTrapZone'
-import Hand from '../Hand/Hand'
+// import Hand from '../Hand/Hand'
 import Graveyard from '../Graveyard/Graveyard'
 import Deck from '../Deck/Deck'
 
@@ -33,10 +33,6 @@ class Board extends Component {
               <div className="bottom deck">
                 <Deck draw={this.props.draw} />
               </div>
-
-              <div className="hand">
-                <Hand />
-              </div> 
           </div>
         );
     }

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './Player.css';
 import Board from '../Board/Board';
-// import Hand from '../Hand/Hand';
+import Hand from '../Hand/Hand';
 
 class Player extends Component {
     constructor() {
@@ -18,14 +18,18 @@ class Player extends Component {
     }
 
     getDeck = async() => {
-        
+
     }
 
     render() {
         return (
           <div>
-              <Board draw={this.props.draw} />
-              {/* <Hand /> */}
+              <div className="board">
+                  <Board draw={this.props.draw} />
+              </div>
+              <div className="hand">
+                  <Hand />
+              </div> 
           </div>
         );
     }
