@@ -45,6 +45,10 @@ class Game extends Component {
     //     console.log('End')
     // }
 
+    getPlayer = () => {
+        return this.state.currentPlayer
+    }
+
     getPhase = () => {
         return this.phases[this.state.gamePhase]
     }
@@ -59,10 +63,10 @@ class Game extends Component {
         return (
           <div>
               <div className="player2">
-                <Player phase={this.phaseObjects} />
+                <Player player={1} phase={this.phaseObjects} getPlayer={this.getPlayer} />
               </div>
               <div className="player1">
-                <Player phase={this.phaseObjects} />
+                <Player player={0} phase={this.phaseObjects} getPlayer={this.getPlayer} />
               </div>
               <button>End Phase</button>
           </div>

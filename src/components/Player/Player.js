@@ -47,7 +47,7 @@ class Player extends Component {
     }
 
     drawCard = () => {
-        if (this.props.phase.getPhase() === this.props.phase.phases[0]) {
+        if (this.props.phase.getPhase() === this.props.phase.phases[0] && this.props.getPlayer() === this.props.player) {
             const temp = this.state.deck
             const card = temp.shift()
             this.setState({
