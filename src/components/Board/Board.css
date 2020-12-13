@@ -1,3 +1,21 @@
-/* .top {
-    display: inline-flex;
-} */
+.board {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+}
+
+.top {
+    grid-row: 1;
+}
+
+.bottom {
+    grid-row: 2;
+}
+
+.monsterZone, .magicTrapZone {
+    grid-column: 1;
+}
+
+.graveyard, .deck {
+    grid-column: 2;
+}
