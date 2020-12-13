@@ -53,6 +53,9 @@ class Player extends Component {
             this.setState({
                 deck: temp
             })
+
+            this.props.phase.nextPhase()
+
             console.log(card)
             return card
         }

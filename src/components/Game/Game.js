@@ -6,7 +6,6 @@ import Player from '../Player/Player'
 class Game extends Component {
     constructor() {
         super();
-        this.phases = ["draw", "standby", "main1", "battle", "main2", "end"]
         this.phaseObjects = {
             phases: ["draw", "standby", "main1", "battle", "main2", "end"],
             getPhase: this.getPhase,
@@ -50,12 +49,22 @@ class Game extends Component {
     }
 
     getPhase = () => {
-        return this.phases[this.state.gamePhase]
+        return this.phaseObjects.phases[this.state.gamePhase]
     }
 
-    nextPhase = () => {
+    nextPhase = async() => {
+        await this.setState({
+            gamePhase: this.state.gamePhase + 1 < this.phaseObjects.phases.length ? this.state.gamePhase + 1 : 0
+        })
+
+        if (!this.state.gamePhase) {
+            this.changePlayer()
+        }
+    }
+
+    changePlayer = () => {
         this.setState({
-            gamePhase: this.state.gamePhase + 1 < this.phases.length ? this.state.gamePhase + 1 : 0
+            currentPlayer: this.state.currentPlayer ? 0 : 1
         })
     }
 
