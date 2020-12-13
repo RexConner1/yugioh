@@ -55,6 +55,7 @@ class Game extends Component {
           <div>
               <Player draw={this.executeDraw} />
               <Player draw={this.executeDraw} />
+              <button>End Phase</button>
           </div>
         );
     }

@@ -14,11 +14,21 @@ class MonsterZone extends Component {
     render() {
         return (
           <div className="monsterCards">
-            <Card image={this.state.zoneImage} />
-            <Card image={this.state.zoneImage} />
-            <Card image={this.state.zoneImage} />
-            <Card image={this.state.zoneImage} />
-            <Card image={this.state.zoneImage} />
+            <div className="monsterCard">
+              <Card image={this.state.zoneImage} />
+            </div>
+            <div className="monsterCard">
+              <Card image={this.state.zoneImage} />
+            </div>
+            <div className="monsterCard">
+              <Card image={this.state.zoneImage} />
+            </div>
+            <div className="monsterCard">
+              <Card image={this.state.zoneImage} />
+            </div>
+            <div className="monsterCard">
+              <Card image={this.state.zoneImage} />
+            </div>
           </div>
         );
     }

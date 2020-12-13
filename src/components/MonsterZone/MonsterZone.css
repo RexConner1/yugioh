@@ -4,3 +4,7 @@
     display: flex;
     justify-content: space-around;
 }
+
+.monsterCard {
+    min-width: 500px;
+}
