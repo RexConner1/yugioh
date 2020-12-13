@@ -78,6 +78,12 @@ class Player extends Component {
         })
     }
 
+    summonMonster = (e) => {
+        if (this.isCorrectPhase(1)) {
+            console.log(e.target)
+        }
+    }
+
     render() {
         return (
           <div>
@@ -85,7 +91,7 @@ class Player extends Component {
                   <Board draw={this.drawCard} />
               </div>
               <div className="hand">
-                  <Hand hand={this.state.hand} />
+                  <Hand hand={this.state.hand} summon={this.summonMonster} />
               </div> 
           </div>
         );

@@ -13,7 +13,7 @@ class Hand extends Component {
 
     render() {
         const hand = this.props.hand.map(card => (
-            <div className="card"  key={card.id}>
+            <div className="card"  key={card.id} onClick={(e) => this.props.summon(e)} >
                 <Card image={this.state.zoneImage} />
             </div>
         ))

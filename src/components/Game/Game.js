@@ -7,7 +7,8 @@ class Game extends Component {
     constructor() {
         super();
         this.phaseObjects = {
-            phases: ["draw", "standby", "main1", "battle", "main2", "end"],
+            // phases: ["draw", "standby", "main1", "battle", "main2", "end"],
+            phases: ["draw", "main1", "battle", "end"],
             getPhase: this.getPhase,
             goToNextPhase: this.goToNextPhase,
         }
