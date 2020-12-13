@@ -11,13 +11,32 @@ class Player extends Component {
     constructor() {
         super();
         this.state = {
-            deck: [],
+            deck: [
+                {
+                    id: 1,
+                    cardNumber: 1,
+                    name: "Test1",
+                    type: "Normal Monster"
+                },
+                {
+                    id: 2,
+                    cardNumber: 2,
+                    name: "Test2",
+                    type: "Normal Monster"
+                },
+                {
+                    id: 3,
+                    cardNumber: 3,
+                    name: "Test3",
+                    type: "Normal Monster"
+                },
+            ],
             lifePoints: 8000,
         }
     }
 
     componentDidMount = () => {
-        this.setDeck()
+        // this.setDeck()
     }
 
     setDeck = async() => {
