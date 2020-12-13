@@ -28,19 +28,28 @@ class Player extends Component {
     }
 
     drawCard = () => {
-        const temp = this.state.deck
-        const card = temp.shift()
+        if (this.props.phase.getPhase() === this.props.phase.phases[0]) {
+            const temp = this.state.deck
+            const card = temp.shift()
+            this.setState({
+                deck: temp
+            })
+            console.log(card)
+            return card
+        }
+    }
+
+    deductLifePoints = (points) => {
         this.setState({
-            deck: temp
+            lifePoints: this.state.lifePoints - points
         })
-        return card
     }
 
     render() {
         return (
           <div>
               <div className="board">
-                  <Board draw={this.props.draw} />
+                  <Board draw={this.drawCard} />
               </div>
               <div className="hand">
                   <Hand />

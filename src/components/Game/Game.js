@@ -7,38 +7,43 @@ class Game extends Component {
     constructor() {
         super();
         this.phases = ["draw", "standby", "main1", "battle", "main2", "end"]
+        this.phaseObjects = {
+            phases: ["draw", "standby", "main1", "battle", "main2", "end"],
+            getPhase: this.getPhase,
+            nextPhase: this.nextPhase,
+        }
         this.state = {
             currentPlayer: 0,
             gamePhase: 0  //Draw, Standby, Main1, Battle, Main2, End
         }
     }
 
-    executeDraw = (e) => {
-        if(this.getPhase() === this.phases[0]) {
-            console.log('Draw')
-            this.nextPhase()
-        }
-    }
+    // executeDraw = (e) => {
+    //     if(this.getPhase() === this.phases[0]) {
+    //         console.log('Draw')
+    //         this.nextPhase()
+    //     }
+    // }
 
-    executeStandby = (e) => {
-        console.log('Standby')
-    }
+    // executeStandby = (e) => {
+    //     console.log('Standby')
+    // }
     
-    executeMain1 = (e) => {
-        console.log('Main1')
-    }
+    // executeMain1 = (e) => {
+    //     console.log('Main1')
+    // }
 
-    executeBattle = (e) => {
-        console.log('Battle')
-    }
+    // executeBattle = (e) => {
+    //     console.log('Battle')
+    // }
 
-    executeMain2 = (e) => {
-        console.log('Main2')
-    }
+    // executeMain2 = (e) => {
+    //     console.log('Main2')
+    // }
 
-    executeEnd = (e) => {
-        console.log('End')
-    }
+    // executeEnd = (e) => {
+    //     console.log('End')
+    // }
 
     getPhase = () => {
         return this.phases[this.state.gamePhase]
@@ -54,10 +59,10 @@ class Game extends Component {
         return (
           <div>
               <div className="player2">
-                <Player draw={this.executeDraw} />
+                <Player phase={this.phaseObjects} />
               </div>
               <div className="player1">
-                <Player draw={this.executeDraw} />
+                <Player phase={this.phaseObjects} />
               </div>
               <button>End Phase</button>
           </div>
