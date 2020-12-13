@@ -31,6 +31,7 @@ class Player extends Component {
                     type: "Normal Monster"
                 },
             ],
+            hand: [],
             turn: 1
         }
     }
@@ -65,8 +66,16 @@ class Player extends Component {
             this.props.phase.goToNextPhase()
 
             console.log(card)
-            return card
+            this.addCardToHand(card)
         }
+    }
+
+    addCardToHand = (card) => {
+        const temp = this.state.hand
+        temp.push(card)
+        this.setState({
+            hand: temp
+        })
     }
 
     render() {
@@ -76,7 +85,7 @@ class Player extends Component {
                   <Board draw={this.drawCard} />
               </div>
               <div className="hand">
-                  <Hand />
+                  <Hand hand={this.state.hand} />
               </div> 
           </div>
         );

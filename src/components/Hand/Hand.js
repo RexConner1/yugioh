@@ -12,23 +12,15 @@ class Hand extends Component {
     }
 
     render() {
+        const hand = this.props.hand.map(card => (
+            <div className="card"  key={card.id}>
+                <Card image={this.state.zoneImage} />
+            </div>
+        ))
+
         return (
           <div className="hand">
-              <div className="card">
-                <Card image={this.state.zoneImage} />
-              </div>
-              <div className="card">
-                <Card image={this.state.zoneImage} />
-              </div>
-              <div className="card">
-                <Card image={this.state.zoneImage} />
-              </div>
-              <div className="card">
-                <Card image={this.state.zoneImage} />
-              </div>
-              <div className="card">
-                <Card image={this.state.zoneImage} />
-              </div>
+              {hand}
           </div>
         );
     }

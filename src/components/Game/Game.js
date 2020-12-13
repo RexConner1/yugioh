@@ -14,7 +14,7 @@ class Game extends Component {
         this.state = {
             currentPlayer: 0,
             gamePhase: 0,  //Draw, Standby, Main1, Battle, Main2, End
-            monstersOnField: [],
+            monstersOnField: [[], []],
             lifePoints: [8000, 8000],
             winner: "",
         }
