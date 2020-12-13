@@ -31,7 +31,6 @@ class Player extends Component {
                     type: "Normal Monster"
                 },
             ],
-            lifePoints: 8000,
             turn: 1
         }
     }
@@ -68,12 +67,6 @@ class Player extends Component {
             console.log(card)
             return card
         }
-    }
-
-    deductLifePoints = (points) => {
-        this.setState({
-            lifePoints: this.state.lifePoints - points
-        })
     }
 
     render() {

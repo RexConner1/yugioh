@@ -14,36 +14,11 @@ class Game extends Component {
         this.state = {
             currentPlayer: 0,
             gamePhase: 0,  //Draw, Standby, Main1, Battle, Main2, End
+            monstersOnField: [],
+            lifePoints: [8000, 8000],
             winner: "",
         }
     }
-
-    // executeDraw = (e) => {
-    //     if(this.getPhase() === this.phases[0]) {
-    //         console.log('Draw')
-    //         this.nextPhase()
-    //     }
-    // }
-
-    // executeStandby = (e) => {
-    //     console.log('Standby')
-    // }
-    
-    // executeMain1 = (e) => {
-    //     console.log('Main1')
-    // }
-
-    // executeBattle = (e) => {
-    //     console.log('Battle')
-    // }
-
-    // executeMain2 = (e) => {
-    //     console.log('Main2')
-    // }
-
-    // executeEnd = (e) => {
-    //     console.log('End')
-    // }
 
     getPlayer = () => {
         return this.state.currentPlayer
@@ -51,6 +26,14 @@ class Game extends Component {
 
     getPhase = () => {
         return this.phaseObjects.phases[this.state.gamePhase]
+    }
+
+    deductLifePoints = (points, fromPlayer) => {
+        const temp = this.state.lifePoints
+        temp[fromPlayer] = temp[fromPlayer] - points
+        this.setState({
+            lifePoints: temp
+        })
     }
 
     goToNextPhase = async() => {
