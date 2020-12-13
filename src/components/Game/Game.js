@@ -13,7 +13,8 @@ class Game extends Component {
         }
         this.state = {
             currentPlayer: 0,
-            gamePhase: 0  //Draw, Standby, Main1, Battle, Main2, End
+            gamePhase: 0,  //Draw, Standby, Main1, Battle, Main2, End
+            winner: "",
         }
     }
 

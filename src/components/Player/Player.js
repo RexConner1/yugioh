@@ -32,6 +32,7 @@ class Player extends Component {
                 },
             ],
             lifePoints: 8000,
+            turn: 1
         }
     }
 
@@ -46,8 +47,16 @@ class Player extends Component {
         })
     }
 
+    isCorrectPhase = (phaseId) => {
+        return this.props.phase.getPhase() === this.props.phase.phases[phaseId]
+    }
+
+    isPlayersTurn = () => {
+        return this.props.getPlayer() === this.props.player
+    }
+
     drawCard = () => {
-        if (this.props.phase.getPhase() === this.props.phase.phases[0] && this.props.getPlayer() === this.props.player) {
+        if (this.isCorrectPhase(0) && this.isPlayersTurn()) {
             const temp = this.state.deck
             const card = temp.shift()
             this.setState({
