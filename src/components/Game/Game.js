@@ -53,8 +53,12 @@ class Game extends Component {
     render() {
         return (
           <div>
-              <Player draw={this.executeDraw} />
-              <Player draw={this.executeDraw} />
+              <div className="player2">
+                <Player draw={this.executeDraw} />
+              </div>
+              <div className="player1">
+                <Player draw={this.executeDraw} />
+              </div>
               <button>End Phase</button>
           </div>
         );

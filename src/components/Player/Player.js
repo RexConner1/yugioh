@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 import './Player.css';
 import Board from '../Board/Board';
 import Hand from '../Hand/Hand';
+
+const backendUrl = 'http://localhost:3000/api'
 
 class Player extends Component {
     constructor() {
@@ -14,11 +17,23 @@ class Player extends Component {
     }
 
     componentDidMount = () => {
-        this.getDeck()
+        this.setDeck()
     }
 
-    getDeck = async() => {
+    setDeck = async() => {
+        const response = await axios(`${backendUrl}/decks`)
+        this.setState({
+            deck: response
+        })
+    }
 
+    drawCard = () => {
+        const temp = this.state.deck
+        const card = temp.shift()
+        this.setState({
+            deck: temp
+        })
+        return card
     }
 
     render() {

@@ -16,7 +16,6 @@ class EditDecks extends Component {
     componentDidMount = () => {
         this.signUp()
         // this.logIn()
-        // this.getDecks()
     }
 
     signUp = async() => {
@@ -33,11 +32,6 @@ class EditDecks extends Component {
             username: "djorona",
             password: "test"
         })
-    }
-
-    getDecks = async() => {
-        const response = await axios(`${backendUrl}/decks`)
-        console.log(response)
     }
 
     render() {
