@@ -54,7 +54,7 @@ class Player extends Component {
                 deck: temp
             })
 
-            this.props.phase.nextPhase()
+            this.props.phase.goToNextPhase()
 
             console.log(card)
             return card

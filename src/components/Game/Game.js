@@ -9,7 +9,7 @@ class Game extends Component {
         this.phaseObjects = {
             phases: ["draw", "standby", "main1", "battle", "main2", "end"],
             getPhase: this.getPhase,
-            nextPhase: this.nextPhase,
+            goToNextPhase: this.goToNextPhase,
         }
         this.state = {
             currentPlayer: 0,
@@ -52,7 +52,7 @@ class Game extends Component {
         return this.phaseObjects.phases[this.state.gamePhase]
     }
 
-    nextPhase = async() => {
+    goToNextPhase = async() => {
         await this.setState({
             gamePhase: this.state.gamePhase + 1 < this.phaseObjects.phases.length ? this.state.gamePhase + 1 : 0
         })
