@@ -7,9 +7,10 @@ class Game extends Component {
     constructor() {
         super();
         this.numberOfMonsterSlots = 5;
+        this.emptyField = new Array(this.numberOfMonsterSlots).fill(null)
         this.state = {
             currentPlayer: 0,
-            monstersOnField: [new Array(this.numberOfMonsterSlots).fill(null), new Array(this.numberOfMonsterSlots).fill(null)],
+            monstersOnField: [this.emptyField, this.emptyField],
             lifePoints: [8000, 8000],
             winner: "",
         }
