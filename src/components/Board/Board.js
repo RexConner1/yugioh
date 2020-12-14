@@ -20,7 +20,7 @@ class Board extends Component {
           <div className="board">
               {/* <FieldSpell /> */}
               <div className="top monsterZone">
-                <MonsterZone />
+                <MonsterZone summon={this.props.summon} onField={this.props.onField} />
               </div>
               <div className="top graveyard">
                 <Graveyard />

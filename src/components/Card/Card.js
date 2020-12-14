@@ -6,14 +6,28 @@ class Card extends Component {
     constructor() {
         super();
         this.state = {
-
+            name: "",
+            type: "",
+            image: "/monsterCardZone.png",
+            attack: 0,
+            defense: 0
         }
+    }
+
+    componentDidMount = () => {
+        this.changeImage(this.props.image)
+    }
+
+    changeImage = (imageUrl) => {
+        this.setState({
+            image: imageUrl
+        })
     }
 
     render() {
         return (
           <div>
-              <img src={this.props.image ? this.props.image : "/monsterCardZone.png"} alt="monsterCardZone"></img>
+              <img src={this.state.image} alt="monsterCardZone"></img>
           </div>
         );
     }
