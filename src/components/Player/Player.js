@@ -87,8 +87,6 @@ class Player extends Component {
                 deck: temp
             })
 
-            this.goToNextPhase()
-
             console.log(card)
             this.addCardToHand(card)
         }
@@ -100,6 +98,8 @@ class Player extends Component {
         this.setState({
             hand: temp
         })
+
+        this.goToNextPhase()
     }
 
 
@@ -113,8 +113,9 @@ class Player extends Component {
         }
     }
 
-    summonMonster = (e) => {
+    summonMonsterToField = (e) => {
         if (this.isCorrectPhase(1) && this.state.summonThisTurn) {
+            e.target.src = this.state.summonThisTurn.src
             console.log(e.target)
         }
     }
@@ -125,7 +126,7 @@ class Player extends Component {
         return (
           <div>
               <div className="board">
-                  <Board draw={this.drawCard} summonTo={this.summonMonster} onField={this.props.onField} />
+                  <Board draw={this.drawCard} summonTo={this.summonMonsterToField} onField={this.props.onField} />
               </div>
               <div className="hand">
                   <Hand hand={this.state.hand} summon={this.selectMonsterToSummon} />

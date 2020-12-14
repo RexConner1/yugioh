@@ -34,6 +34,14 @@ class Game extends Component {
 
 
     // ATTACKING
+    selectAttackingMonster = (e) => {
+
+    }
+
+    selectMonsterToAttack = (e) => {
+
+    }
+
     deductLifePoints = (points, fromPlayer = this.getOtherPlayer()) => {
         const temp = this.state.lifePoints
         temp[fromPlayer] = temp[fromPlayer] - points

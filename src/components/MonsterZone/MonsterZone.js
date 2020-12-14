@@ -8,7 +8,7 @@ class MonsterZone extends Component {
         super();
         this.defaultImage = "/monsterCardZone.png"
         this.state = {
-          zoneImage: this.defaultImage
+          image: this.defaultImage
         }
     }
 
@@ -17,7 +17,7 @@ class MonsterZone extends Component {
           <div className="monsterCard" key={i} onClick={(e) => {
             this.props.summonTo(e)
           }}>
-            <Card image={this.state.zoneImage} />
+            <Card image={this.state.image} />
           </div>
         ))
 

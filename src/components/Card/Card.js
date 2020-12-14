@@ -27,7 +27,7 @@ class Card extends Component {
     render() {
         return (
           <div>
-              <img src={this.state.image} alt="monsterCardZone"></img>
+              <img src={this.state.image} alt="card"></img>
           </div>
         );
     }
