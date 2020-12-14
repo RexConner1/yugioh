@@ -5,7 +5,7 @@ import './Home.css';
 function Home() {
   return (
     <div>
-        <h1>Home</h1>
+        <h1>Login to Create/Edit Deck</h1>
     </div>
   );
 }
