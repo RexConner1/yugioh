@@ -16,7 +16,7 @@ class Game extends Component {
     }
 
 
-    
+    // PLAYER INFO
     getPlayer = () => {
         return this.state.currentPlayer
     }
@@ -32,7 +32,7 @@ class Game extends Component {
     }
 
 
-
+    // ATTACKING
     deductLifePoints = (points, fromPlayer = this.getOtherPlayer()) => {
         const temp = this.state.lifePoints
         temp[fromPlayer] = temp[fromPlayer] - points
