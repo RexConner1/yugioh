@@ -52,24 +52,32 @@ const Login = () => {
   // if there's no user, show the login form
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Username: </label>
-        <input
-          type="text"
-          value={username}
-          placeholder="Enter a username"
-          onChange={({ target }) => setUsername(target.value)}
-        />
-        <div>
-          <label htmlFor="password">Password: </label>
-          <input
-            type="password"
-            value={password}
-            placeholder="Enter a password"
-            onChange={({ target }) => setPassword(target.value)}
-          />
+      <form className="justify-content-center" onSubmit={handleSubmit}>
+        <h3>Login</h3>
+        
+        <div className="form-group">
+            <label htmlFor="username">Username: </label>
+            <input
+                type="text"
+                className="form-control"
+                value={username}
+                name="username"
+                placeholder="Enter a username"
+                onChange={({ target }) => setUsername(target.value)}
+            />
         </div>
-        <button type="submit">Login</button>
+        <div className="form-group">
+            <label htmlFor="password">Password: </label>
+            <input
+                type="password"
+                className="form-control"
+                name="password"
+                value={password}
+                placeholder="Enter a password"
+                onChange={({ target }) => setPassword(target.value)}
+            />
+        </div>
+        <button type="submit" className="btn btn-primary btn-center">Login</button>
       </form>
     </div>
   );

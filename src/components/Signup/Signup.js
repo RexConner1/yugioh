@@ -1,22 +1,33 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import './Signup.css';
-
-class Signup extends Component {
-    constructor() {
-        super();
-        this.state = {
-
-        }
-    }
-
+class SignUp extends Component {
     render() {
         return (
-          <div className="signup">
+            <form>
+                <h3>Sign Up</h3>
 
-          </div>
+                <div className="form-group">
+                    <label>Name</label>
+                    <input type="text" className="form-control" placeholder="Name" />
+                </div>
+
+                <div className="form-group">
+                    <label>User Name</label>
+                    <input type="email" className="form-control" placeholder="Enter user name" />
+                </div>
+
+                <div className="form-group">
+                    <label>Password</label>
+                    <input type="password" className="form-control" placeholder="Enter password" />
+                </div>
+
+                <button type="submit" className="btn btn-primary btn-center">Sign Up</button>
+                <p className="forgot-password text-center">
+                    Already registered <a href="/login">Sign in?</a>
+                </p>
+            </form>
         );
     }
 }
 
-export default Signup;
+export default SignUp
