@@ -51,7 +51,13 @@ class Player extends Component {
         })
     }
 
-    
+
+    //
+    isPlayersTurn = () => {
+        return this.props.getPlayer() === this.props.player
+    }
+
+
     // PHASES
     getPhase = () => {
         return this.phases[this.state.phase]
@@ -72,11 +78,7 @@ class Player extends Component {
     }
 
 
-
-    isPlayersTurn = () => {
-        return this.props.getPlayer() === this.props.player
-    }
-
+    // DRAW
     drawCard = () => {
         if (this.isCorrectPhase(0) && this.isPlayersTurn()) {
             const temp = this.state.deck
