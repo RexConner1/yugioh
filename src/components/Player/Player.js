@@ -10,6 +10,8 @@ const backendUrl = 'http://localhost:3000/api'
 class Player extends Component {
     constructor() {
         super();
+        // this.phases: ["draw", "standby", "main1", "battle", "main2", "end"],
+        this.phases = ["draw", "main1", "battle", "end"]
         this.state = {
             deck: [
                 {
@@ -33,6 +35,7 @@ class Player extends Component {
             ],
             hand: [],
             turn: 1,
+            phase: 0,
             summonThisTurn: false,
         }
     }
@@ -48,9 +51,27 @@ class Player extends Component {
         })
     }
 
-    isCorrectPhase = (phaseId) => {
-        return this.props.phase.getPhase() === this.props.phase.phases[phaseId]
+    
+    // PHASES
+    getPhase = () => {
+        return this.phases[this.state.phase]
     }
+
+    goToNextPhase = async() => {
+        await this.setState({
+            phase: this.state.phase + 1 < this.phases.length ? this.state.phase + 1 : 0
+        })
+
+        if (!this.state.phase) {
+            this.props.changePlayer()
+        }
+    }
+
+    isCorrectPhase = (phaseId) => {
+        return this.getPhase() === this.phases[phaseId]
+    }
+
+
 
     isPlayersTurn = () => {
         return this.props.getPlayer() === this.props.player
@@ -64,7 +85,7 @@ class Player extends Component {
                 deck: temp
             })
 
-            this.props.phase.goToNextPhase()
+            this.goToNextPhase()
 
             console.log(card)
             this.addCardToHand(card)
@@ -79,6 +100,8 @@ class Player extends Component {
         })
     }
 
+
+    // SUMMON
     selectMonsterToSummon = (e) => {
         if (this.isCorrectPhase(1) && !this.state.summonThisTurn) {
             console.log(e.target)
@@ -93,6 +116,8 @@ class Player extends Component {
             console.log(e.target.src)
         }
     }
+
+
 
     render() {
         return (
