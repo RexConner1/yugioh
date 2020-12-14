@@ -10,8 +10,8 @@ class Navigation extends Component {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav>
-                        <Nav.Link><Link to="/">Sign Up</Link></Nav.Link>
-                        <Nav.Link><Link to="/">Login</Link></Nav.Link>
+                        <Nav.Link><Link to="/signup">Sign Up</Link></Nav.Link>
+                        <Nav.Link><Link to="/login">Login</Link></Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
