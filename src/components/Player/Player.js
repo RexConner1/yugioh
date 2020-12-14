@@ -118,6 +118,8 @@ class Player extends Component {
             e.target.src = this.state.summonThisTurn.src
             console.log(e.target)
         }
+
+        this.goToNextPhase()
     }
 
 
