@@ -15,7 +15,7 @@ class MonsterZone extends Component {
     render() {
         const monstersOnField = this.props.onField.map((card, i) => (
           <div className="monsterCard" key={i} onClick={(e) => {
-            this.props.summon(e)
+            this.props.summonTo(e)
           }}>
             <Card image={this.state.zoneImage} />
           </div>

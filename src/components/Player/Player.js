@@ -115,7 +115,7 @@ class Player extends Component {
 
     summonMonster = (e) => {
         if (this.isCorrectPhase(1) && this.state.summonThisTurn) {
-            console.log(e.target.src)
+            console.log(e.target)
         }
     }
 
@@ -125,10 +125,10 @@ class Player extends Component {
         return (
           <div>
               <div className="board">
-                  <Board draw={this.drawCard} summon={this.summonMonster} onField={this.props.onField} />
+                  <Board draw={this.drawCard} summonTo={this.summonMonster} onField={this.props.onField} />
               </div>
               <div className="hand">
-                  <Hand hand={this.state.hand} select={this.selectMonsterToSummon} />
+                  <Hand hand={this.state.hand} summon={this.selectMonsterToSummon} />
               </div> 
           </div>
         );
