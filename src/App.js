@@ -7,6 +7,7 @@ import Login from './components/Login/Login'
 import Signup from './components/Signup/Signup'
 import Game from './components/Game/Game'
 import EditDecks from './components/EditDecks/EditDecks'
+import EditCards from './components/EditCards/EditCards'
 import Navigation from "./components/Navigation/Navigation";
 
 class App extends Component {
@@ -25,7 +26,7 @@ class App extends Component {
             <Route path="/game" render={() => <Game />} />
 
             <Route path="/decks/edit" render={() => <EditDecks />} />
-            <Route path="/deck/:id/edit" render={() => <EditDecks />} />
+            <Route path="/decks/deck/:id/edit" render={() => <EditCards />} />
           </Switch>
         </main>
         <footer>
