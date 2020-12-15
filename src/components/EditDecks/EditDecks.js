@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import './EditDecks.css';
 
-const backendUrl = 'http://localhost:3000/api'
+// const backendUrl = 'http://localhost:3000/api'
 
 class EditDecks extends Component {
     constructor() {
@@ -152,7 +152,11 @@ class EditDecks extends Component {
         const decks = this.state.decks.map(deck => {
             return (
                 <tr key={deck.id}>
-                    <th scope="row">{deck.id}</th>
+                    <td>
+                        <div class="radio" onChange={(e) => console.log(e.target)}>
+                            <input type="radio" id={`radio${deck.id}`} name="optradio" checked />
+                        </div>
+                    </td>
                     <td onDoubleClick={() => console.log('Hi')}>{deck.name}</td>
                     <td>{deck.Cards.length}</td>
                     <td>{deck.createdAt}</td>
@@ -168,7 +172,7 @@ class EditDecks extends Component {
             <table className="table table-striped table-hover">
                 <thead>
                     <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">Set as Deck</th>
                     <th scope="col">Deck Name</th>
                     <th scope="col">Cards in Deck</th>
                     <th scope="col">Created At</th> 
