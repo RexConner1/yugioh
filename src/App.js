@@ -1,3 +1,4 @@
+import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 
 import './App.css';
@@ -8,29 +9,31 @@ import Game from './components/Game/Game'
 import EditDecks from './components/EditDecks/EditDecks'
 import Navigation from "./components/Navigation/Navigation";
 
-function App() {
-  return (
-    <div className="App">
-      <header>
-        <Navigation />
-      </header>
-      <main>
-        <Switch>
-          <Route path="/" exact render={() => <Home />} />
-          <Route path="/login" render={() => <Login />} />
-          <Route path="/signup" render={() => <Signup />} />
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <header>
+          <Navigation />
+        </header>
+        <main>
+          <Switch>
+            <Route path="/" exact render={() => <Home />} />
+            <Route path="/login" render={() => <Login />} />
+            <Route path="/signup" render={() => <Signup />} />
 
-          <Route path="/game" render={() => <Game />} />
+            <Route path="/game" render={() => <Game />} />
 
-          <Route path="/decks/edit" render={() => <EditDecks />} />
-          <Route path="/deck/:id/edit" render={() => <EditDecks />} />
-        </Switch>
-      </main>
-      <footer>
+            <Route path="/decks/edit" render={() => <EditDecks />} />
+            <Route path="/deck/:id/edit" render={() => <EditDecks />} />
+          </Switch>
+        </main>
+        <footer>
 
-      </footer>
-    </div>
-  );
+        </footer>
+      </div>
+    );
+  }
 }
 
 export default App;
