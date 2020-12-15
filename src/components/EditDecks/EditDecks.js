@@ -1,9 +1,10 @@
-// import axios from 'axios';
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
+// import axios from 'axios';
 
 import './EditDecks.css';
 
-// const backendUrl = 'http://localhost:3000/api'
+const backendUrl = 'http://localhost:3000/api'
 
 class EditDecks extends Component {
     constructor() {
@@ -150,13 +151,13 @@ class EditDecks extends Component {
     render() {
         const decks = this.state.decks.map(deck => {
             return (
-                <tr key={deck.id} onClick={() => console.log('Test')}>
+                <tr key={deck.id}>
                     <th scope="row">{deck.id}</th>
                     <td onDoubleClick={() => console.log('Hi')}>{deck.name}</td>
                     <td>{deck.Cards.length}</td>
                     <td>{deck.createdAt}</td>
                     <td>{deck.updatedAt}</td>
-                    <td><a href="/edit">Edit</a></td>
+                    <td><Link to={`deck/${deck.id}/edit`}>Edit</Link></td>
                     <td><a href="/delete">Delete</a></td>
                 </tr>
             )
@@ -165,21 +166,25 @@ class EditDecks extends Component {
         return (
           <div>
             <table className="table table-striped table-hover">
-            <thead>
-                <tr>
-                <th scope="col">#</th>
-                <th scope="col">Deck Name</th>
-                <th scope="col">Cards in Deck</th>
-                <th scope="col">Created At</th> 
-                <th scope="col">Updated At</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody>
-                {decks}
-            </tbody>
+                <thead>
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Deck Name</th>
+                    <th scope="col">Cards in Deck</th>
+                    <th scope="col">Created At</th> 
+                    <th scope="col">Updated At</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {decks}
+                </tbody>
             </table>
+
+            <form>
+                <button type="submit" className="btn btn-primary btn-center">Add Deck</button>
+            </form>
           </div>
         );
     }
