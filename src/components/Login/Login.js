@@ -29,8 +29,7 @@ const Login = () => {
     e.preventDefault();
     const user = { username, password };
     // send the username and password to the server
-    const response = await axios.post(
-      "/auth/login",
+    const response = await axios.post("/auth/login",
       user
     );
     // set the state of the user

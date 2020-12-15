@@ -9,9 +9,11 @@ class Navigation extends Component {
                 <Navbar.Brand href="/">Yu-Gi-Oh</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav className="mr-auto">
+                    </Nav>
                     <Nav>
-                        <Nav.Link><Link to="/signup">Sign Up</Link></Nav.Link>
-                        <Nav.Link><Link to="/login">Login</Link></Nav.Link>
+                        <Nav.Link href="/signup">Sign Up</Nav.Link>
+                        <Nav.Link href="/login">Login</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
