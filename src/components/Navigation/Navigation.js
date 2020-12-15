@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Navbar, Nav } from 'react-bootstrap';
 
 class Navigation extends Component {
@@ -13,8 +13,11 @@ class Navigation extends Component {
                         <Nav.Link href="/game">New Game</Nav.Link>
                     </Nav>
                     <Nav>
-                        <Nav.Link href={this.props.loggedIn ? '/decks/edit' : '/signup'}>{this.props.loggedIn ? 'Edit Deck' : 'Sign Up'}</Nav.Link>
-                        <Nav.Link href="/login">{this.props.loggedIn ? 'Logout' : 'Login'}</Nav.Link>
+                        {/* <Nav.Link href={this.props.loggedIn ? '/decks/edit' : '/signup'}>{this.props.loggedIn ? 'Edit Deck' : 'Sign Up'}</Nav.Link> */}
+                        {/* <Nav.Link href="/login">{this.props.loggedIn ? 'Logout' : 'Login'}</Nav.Link> */}
+
+                        <Nav.Link><Link to={this.props.loggedIn ? '/decks/edit' : '/signup'}>{this.props.loggedIn ? 'Edit Deck' : 'Sign Up'}</Link></Nav.Link>
+                        <Nav.Link><Link to="/login">{this.props.loggedIn ? 'Logout' : 'Login'}</Link></Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

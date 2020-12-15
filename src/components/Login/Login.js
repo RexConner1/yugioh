@@ -23,6 +23,8 @@ function Login(props) {
     setPassword("");
     localStorage.clear();
 
+    props.setLoginState(false)
+
     props.history.push(`/`)
   };
 
@@ -38,6 +40,8 @@ function Login(props) {
     setUser(response.data);
     // store the user in localStorage
     localStorage.setItem("user", JSON.stringify(response.data));
+
+    props.setLoginState(true)
 
     props.history.push(`/decks/edit`)
   };

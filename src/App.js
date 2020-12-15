@@ -18,9 +18,9 @@ class App extends Component {
     }
   }
 
-  toggleLogInState = () => {
+  setLoginState = (state) => {
     this.setState({
-      loggedIn: !this.state.loggedIn
+      loggedIn: state
     })
   }
 
@@ -33,7 +33,7 @@ class App extends Component {
         <main>
           <Switch>
             <Route path="/" exact render={() => <Home />} />
-            <Route path="/login" render={(routerProps) => <Login {...routerProps} />} />
+            <Route path="/login" render={(routerProps) => <Login {...routerProps} setLoginState={this.setLoginState} />} />
             <Route path="/signup" render={() => <Signup />} />
 
             <Route path="/game" render={() => <Game />} />
