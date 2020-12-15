@@ -42,7 +42,6 @@ const Login = () => {
   if (user) {
     return (
       <div>
-        {user.name} is loggged in
         <button onClick={handleLogout}>logout</button>
       </div>
     );

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { Navbar, Nav } from 'react-bootstrap';
 
 class Navigation extends Component {
@@ -10,6 +10,7 @@ class Navigation extends Component {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto">
+                        <Nav.Link href="/game">New Game</Nav.Link>
                     </Nav>
                     <Nav>
                         <Nav.Link href="/signup">Sign Up</Nav.Link>
