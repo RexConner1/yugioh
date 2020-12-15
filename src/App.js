@@ -11,11 +11,24 @@ import EditCards from './components/EditCards/EditCards'
 import Navigation from "./components/Navigation/Navigation";
 
 class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      loggedIn: false
+    }
+  }
+
+  toggleLogInState = () => {
+    this.setState({
+      loggedIn: !this.state.loggedIn
+    })
+  }
+
   render() {
     return (
       <div className="App">
         <header>
-          <Navigation />
+          <Navigation loggedIn={this.state.loggedIn} />
         </header>
         <main>
           <Switch>

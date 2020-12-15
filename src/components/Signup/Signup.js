@@ -4,7 +4,7 @@ class SignUp extends Component {
     render() {
         return (
             <form>
-                <h3>Sign Up</h3>
+                <h1>Sign Up</h1>
 
                 <div className="form-group">
                     <label>Name</label>

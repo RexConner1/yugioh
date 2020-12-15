@@ -51,7 +51,7 @@ const Login = () => {
   return (
     <div>
       <form className="justify-content-center" onSubmit={handleSubmit}>
-        <h3>Login</h3>
+        <h1>Login</h1>
         
         <div className="form-group">
             <label htmlFor="username">Username: </label>
