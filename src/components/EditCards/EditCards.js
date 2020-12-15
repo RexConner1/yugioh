@@ -149,6 +149,9 @@ class EditCards extends Component {
                           <th scope="col"></th>
                         </tr>
                     </thead>
+                    <tbody>
+                        {cards}
+                    </tbody>
                  </table>
           </div>
         );

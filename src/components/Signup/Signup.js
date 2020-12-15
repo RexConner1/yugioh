@@ -2,6 +2,14 @@ import React, { Component } from "react";
 
 class SignUp extends Component {
     render() {
+        // signUp = async() => {
+        //     const response = await axios.post(`${backendUrl}/auth/signup`, {
+        //         name: "Bre Orona",
+        //         username: "nice",
+        //         password: "test"
+        //     })
+        //     console.log(response)
+        // }
         return (
             <form>
                 <h1>Sign Up</h1>
