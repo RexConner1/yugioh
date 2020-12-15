@@ -121,6 +121,20 @@ class EditCards extends Component {
     }
 
     render() {
+        const cards = this.state.decks.map(deck => {
+            return (
+                <tr key={deck.id}>
+                    <td></td>
+                    <td onDoubleClick={() => console.log('Hi')}>{deck.name}</td>
+                    <td>{deck.Cards.length}</td>
+                    <td>{deck.createdAt}</td>
+                    <td>{deck.updatedAt}</td>
+                    <td></td>
+                    <td><a href="/delete">Delete</a></td>
+                </tr>
+            )
+        })
+
         return (
           <div>
               <table className="table table-striped table-hover">

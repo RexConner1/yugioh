@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-// import axios from 'axios';
+import axios from 'axios';
 
 import './EditDecks.css';
 
-// const backendUrl = 'http://localhost:3000/api'
+const backendUrl = 'http://localhost:3000/api'
 
 class EditDecks extends Component {
     constructor() {
@@ -136,17 +136,10 @@ class EditDecks extends Component {
     //     console.log(response)
     // }
 
-    // logIn = async() => {
-    //     await axios.post(`${backendUrl}/auth/login`, {
-    //         username: "djorona",
-    //         password: "test"
-    //     })
-    // }
-
-    // getDeck = async() => {
-    //     const response = await axios(`${backendUrl}/deck`)
-    //     console.log(response)
-    // }
+    getDecks = async() => {
+        const response = await axios(`${backendUrl}/decks`)
+        console.log(response)
+    }
 
     render() {
         const decks = this.state.decks.map(deck => {
