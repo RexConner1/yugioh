@@ -64,7 +64,7 @@ class EditDecks extends Component {
     render() {
         const decks = this.state.decks.map(deck => {
             return (
-                <tr>
+                <tr key={deck.id}>
                     <th scope="row">{deck.id}</th>
                     <td>{deck.name}</td>
                     <td>{deck.userId}</td>
@@ -78,7 +78,7 @@ class EditDecks extends Component {
 
         return (
           <div>
-            <table class="table table-striped table-hover">
+            <table className="table table-striped table-hover">
             <thead>
                 <tr>
                 <th scope="col">#</th>
