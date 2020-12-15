@@ -3,7 +3,7 @@ import axios from "axios";
 
 axios.defaults.baseURL = 'http://localhost:3000/api'
 
-const Login = () => {
+function Login(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [user, setUser] = useState();
@@ -22,6 +22,8 @@ const Login = () => {
     setUsername("");
     setPassword("");
     localStorage.clear();
+
+    props.history.push(`/`)
   };
 
   // login the user
@@ -36,12 +38,15 @@ const Login = () => {
     setUser(response.data);
     // store the user in localStorage
     localStorage.setItem("user", JSON.stringify(response.data));
+
+    props.history.push(`/decks/edit`)
   };
 
   // if there's a user show the message below
   if (user) {
     return (
       <div>
+        {user.name} is loggged in
         <button onClick={handleLogout}>logout</button>
       </div>
     );

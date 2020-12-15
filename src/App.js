@@ -33,7 +33,7 @@ class App extends Component {
         <main>
           <Switch>
             <Route path="/" exact render={() => <Home />} />
-            <Route path="/login" render={() => <Login />} />
+            <Route path="/login" render={(routerProps) => <Login {...routerProps} />} />
             <Route path="/signup" render={() => <Signup />} />
 
             <Route path="/game" render={() => <Game />} />
