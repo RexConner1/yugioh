@@ -9,7 +9,29 @@ class EditDecks extends Component {
     constructor() {
         super();
         this.state = {
-
+            decks: [
+                {
+                    "id": 3,
+                    "name": "Deck3",
+                    "userId": 1,
+                    "createdAt": "2020-12-13T02:54:09.232Z",
+                    "updatedAt": "2020-12-13T02:54:09.232Z",
+                },
+                {
+                    "id": 2,
+                    "name": "Deck2",
+                    "userId": 1,
+                    "createdAt": "2020-12-13T02:54:09.232Z",
+                    "updatedAt": "2020-12-13T02:54:09.232Z",
+                },
+                {
+                    "id": 1,
+                    "name": "Deck1",
+                    "userId": 1,
+                    "createdAt": "2020-12-13T02:54:09.232Z",
+                    "updatedAt": "2020-12-13T02:54:09.232Z",
+                }
+            ]
         }
     }
 
@@ -40,29 +62,19 @@ class EditDecks extends Component {
     // }
 
     render() {
-        const decks = [
-                {
-                    "id": 3,
-                    "name": "Deck3",
-                    "userId": 1,
-                    "createdAt": "2020-12-13T02:54:09.232Z",
-                    "updatedAt": "2020-12-13T02:54:09.232Z",
-                },
-                {
-                    "id": 2,
-                    "name": "Deck2",
-                    "userId": 1,
-                    "createdAt": "2020-12-13T02:54:09.232Z",
-                    "updatedAt": "2020-12-13T02:54:09.232Z",
-                },
-                {
-                    "id": 1,
-                    "name": "Deck1",
-                    "userId": 1,
-                    "createdAt": "2020-12-13T02:54:09.232Z",
-                    "updatedAt": "2020-12-13T02:54:09.232Z",
-                }
-        ]
+        const decks = this.state.decks.map(deck => {
+            return (
+                <tr>
+                    <th scope="row">{deck.id}</th>
+                    <td>{deck.name}</td>
+                    <td>{deck.userId}</td>
+                    <td>{deck.createdAt}</td>
+                    <td>{deck.updatedAt}</td>
+                    <td><a href="/edit">Edit</a></td>
+                    <td><a href="/delete">Delete</a></td>
+                </tr>
+            )
+        })
 
         return (
           <div>
@@ -71,41 +83,15 @@ class EditDecks extends Component {
                 <tr>
                 <th scope="col">#</th>
                 <th scope="col">Deck Name</th>
-                <th scope="col">Year</th>
-                <th scope="col">Created</th>
-                <th scope="col">Updated</th>
+                <th scope="col">Cards in Deck</th>
+                <th scope="col">Created At</th> 
+                <th scope="col">Updated At</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Test</td>
-                    <td>Test</td>
-                    <td>Test</td>
-                    <td>Test</td>
-                    <td><a href="/edit">Edit</a></td>
-                    <td><a href="/delete">Delete</a></td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Test</td>
-                    <td>Test</td>
-                    <td>Test</td>
-                    <td>Test</td>
-                    <td><a href="/edit">Edit</a></td>
-                    <td><a href="/delete">Delete</a></td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Test</td>
-                    <td>Test</td>
-                    <td>Test</td>
-                    <td>Test</td>
-                    <td><a href="/edit">Edit</a></td>
-                    <td><a href="/delete">Delete</a></td>
-                </tr>
+                {decks}
             </tbody>
             </table>
           </div>
