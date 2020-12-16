@@ -38,6 +38,12 @@ class EditDecks extends Component {
         }
     }
 
+    deleteDeck = async(id) => {
+        const response = await axios.delete(`${backendUrl}/decks/${id}`)
+
+        this.getDecks()
+    }
+
     render() {
         const decks = this.state.decks.map(deck => {
             return (
@@ -52,7 +58,7 @@ class EditDecks extends Component {
                     <td>{deck.createdAt}</td>
                     <td>{deck.updatedAt}</td>
                     <td><Link to={`deck/${deck.id}/edit`}>Edit</Link></td>
-                    <td><a href="/delete">Delete</a></td>
+                    <td><Link onClick={() => this.deleteDeck(deck.id)}>Delete</Link></td>
                 </tr>
             )
         })
