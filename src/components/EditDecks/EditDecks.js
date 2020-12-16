@@ -30,7 +30,7 @@ class EditDecks extends Component {
 
     addNewDeck = async(e) => {
         if (e.target.name.value) {
-            const response = await axios.post(`${backendUrl}/users/${this.props.userId}/newdeck`, {
+            await axios.post(`${backendUrl}/users/${this.props.userId}/newdeck`, {
                 name: e.target.name.value
             })
 
@@ -39,7 +39,15 @@ class EditDecks extends Component {
     }
 
     deleteDeck = async(id) => {
-        const response = await axios.delete(`${backendUrl}/decks/${id}`)
+        await axios.delete(`${backendUrl}/decks/${id}`)
+
+        this.getDecks()
+    }
+
+    updateDeckName = async(e, id) => {
+        await axios.put(`${backendUrl}/decks/${id}`, {
+            name: e.target.value
+        })
 
         this.getDecks()
     }
@@ -53,7 +61,7 @@ class EditDecks extends Component {
                             <input type="radio" id={`radio${deck.id}`} name="optradio" checked />
                         </div> */}
                     </td>
-                    <td onDoubleClick={() => console.log('Hi')}>{deck.name}</td>
+                    <td><input onChange={(e) => this.updateDeckName(e, deck.id)} type="text" defaultValue={deck.name} /></td>
                     <td>{deck.Cards.length}</td>
                     <td>{deck.createdAt}</td>
                     <td>{deck.updatedAt}</td>
