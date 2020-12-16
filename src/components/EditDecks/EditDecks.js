@@ -55,9 +55,9 @@ class EditDecks extends Component {
             return (
                 <tr key={deck.id}>
                     <td>
-                        {/* <div class="radio" onChange={(e) => console.log(e.target)}>
-                            <input type="radio" id={`radio${deck.id}`} name="optradio" checked />
-                        </div> */}
+                        <div className="radio" onChange={(e) => console.log(e.target)}>
+                            <input type="radio" id={`radio${deck.id}`} name="optradio" />
+                        </div>
                     </td>
                     <td><input onChange={(e) => this.updateDeckName(e, deck.id)} type="text" defaultValue={deck.name} /></td>
                     <td>{deck.Cards.length}</td>
