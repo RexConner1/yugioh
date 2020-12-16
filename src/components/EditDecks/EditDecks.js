@@ -21,8 +21,6 @@ class EditDecks extends Component {
     getDecks = async() => {
         const response = await axios(`${backendUrl}/decks/${this.props.userId}`)
 
-        console.log(response.data.decks)
-
         this.setState({
             decks: response.data.decks
         })
