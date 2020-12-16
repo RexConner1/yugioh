@@ -59,7 +59,7 @@ function Login(props) {
   // if there's no user, show the login form
   return (
     <div>
-      <form className="justify-content-center" onSubmit={handleSubmit}>
+      <form className="col-lg-3 offset-lg-4" onSubmit={handleSubmit}>
         <h1>Login</h1>
         
         <div className="form-group">
