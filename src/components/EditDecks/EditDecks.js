@@ -28,6 +28,16 @@ class EditDecks extends Component {
         })
     }
 
+    addNewDeck = async(e) => {
+        if (e.target.name.value) {
+            const response = await axios.post(`${backendUrl}/users/${this.props.userId}/newdeck`, {
+                name: e.target.name.value
+            })
+
+            this.getDecks()
+        }
+    }
+
     render() {
         const decks = this.state.decks.map(deck => {
             return (
@@ -66,7 +76,14 @@ class EditDecks extends Component {
                 </tbody>
             </table>
 
-            <form>
+            <form className="form-inline justify-content-center" onSubmit={(e) => {
+                e.preventDefault()
+                this.addNewDeck(e)
+            }}>
+                <div className="form-group col-xs-4">
+                    {/* <label htmlFor="ex3">col-xs-4</label> */}
+                    <input className="form-control" id="ex3" name="name" type="text" />
+                </div>
                 <button type="submit" className="btn btn-primary btn-center">Add Deck</button>
             </form>
           </div>
