@@ -39,7 +39,7 @@ class App extends Component {
             <Route path="/game" render={() => <Game />} />
 
             <Route path="/decks/edit" render={(routerProps) => <EditDecks {...routerProps} userId={this.state.userId} />} />
-            <Route path="/decks/deck/:id/edit" render={() => <EditCards userId={this.state.userId} />} />
+            <Route path="/decks/deck/:id/edit" render={(routerProps) => <EditCards {...routerProps} userId={this.state.userId} />} />
           </Switch>
         </main>
         <footer>
