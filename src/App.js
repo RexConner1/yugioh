@@ -14,13 +14,13 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      loggedIn: false
+      userId: false,
     }
   }
 
-  setLoginState = (state) => {
-    this.setState({
-      loggedIn: state
+  setUserId = async(userId) => {
+    await this.setState({
+      userId: userId
     })
   }
 
@@ -28,18 +28,18 @@ class App extends Component {
     return (
       <div className="App">
         <header>
-          <Navigation loggedIn={this.state.loggedIn} />
+          <Navigation loggedIn={this.state.userId} />
         </header>
         <main>
           <Switch>
             <Route path="/" exact render={() => <Home />} />
-            <Route path="/login" render={(routerProps) => <Login {...routerProps} setLoginState={this.setLoginState} />} />
+            <Route path="/login" render={(routerProps) => <Login {...routerProps} setUserId={this.setUserId} />} />
             <Route path="/signup" render={() => <Signup />} />
 
             <Route path="/game" render={() => <Game />} />
 
-            <Route path="/decks/edit" render={() => <EditDecks />} />
-            <Route path="/decks/deck/:id/edit" render={() => <EditCards />} />
+            <Route path="/decks/edit" render={(routerProps) => <EditDecks {...routerProps} userId={this.state.userId} />} />
+            <Route path="/decks/deck/:id/edit" render={() => <EditCards userId={this.state.userId} />} />
           </Switch>
         </main>
         <footer>

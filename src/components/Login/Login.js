@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-axios.defaults.baseURL = 'http://localhost:3000/api'
+const backendUrl = 'http://localhost:3000/api'
 
 function Login(props) {
   const [username, setUsername] = useState("");
@@ -23,7 +23,7 @@ function Login(props) {
     setPassword("");
     localStorage.clear();
 
-    props.setLoginState(false)
+    props.setUserId(null)
 
     props.history.push(`/`)
   };
@@ -33,7 +33,7 @@ function Login(props) {
     e.preventDefault();
     const user = { username, password };
     // send the username and password to the server
-    const response = await axios.post("/auth/login",
+    const response = await axios.post(`${backendUrl}/auth/login`,
       user
     );
     // set the state of the user
@@ -41,7 +41,7 @@ function Login(props) {
     // store the user in localStorage
     localStorage.setItem("user", JSON.stringify(response.data));
 
-    props.setLoginState(true)
+    props.setUserId(response.data.id)
 
     props.history.push(`/decks/edit`)
   };
