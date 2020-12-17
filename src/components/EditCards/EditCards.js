@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+import { DropdownButton, Dropdown } from 'react-bootstrap';
 import axios from 'axios';
 
 import './EditCards.css';
@@ -10,12 +11,14 @@ class EditCards extends Component {
     constructor() {
         super();
         this.state = {
-            cards: []
+            cards: [],
+            toSelect: []
         }
     }
 
     componentDidMount = () => {
         this.getCardsForDeck()
+        this.getAllCards()
     }
 
     getCardsForDeck = async() => {
@@ -24,6 +27,23 @@ class EditCards extends Component {
         this.setState({
             cards: response.data.deck
         })
+    }
+
+    getAllCards = async() => {
+        const response = await axios(`${backendUrl}/cards`)
+
+        this.setState({
+            toSelect: response.data.allCards
+        })
+    }
+
+    addCardToDeck = async(id) => {
+        await axios.post(`${backendUrl}/decks/${this.props.match.params.id}/addcard`, {
+            deckId: this.props.match.params.id,
+            cardId: id
+        })
+
+        this.getCardsForDeck()
     }
 
     deleteCardFromDeck = async(cardId) => {
@@ -48,6 +68,12 @@ class EditCards extends Component {
             )
         })
 
+        const cardOptions = this.state.toSelect.map(card => {
+            return (
+                <Dropdown.Item onClick={() => this.addCardToDeck(card.id)}>{card.name}</Dropdown.Item>
+            )
+        })
+
         return (
           <div>
               <table className="table table-striped table-hover">
@@ -66,6 +92,10 @@ class EditCards extends Component {
                         {cards}
                     </tbody>
                  </table>
+
+                 <DropdownButton id="dropdown-basic-button" title="Add Card to Deck">
+                     {cardOptions}
+                 </DropdownButton>
           </div>
         );
     }
