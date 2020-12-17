@@ -1,70 +1,60 @@
-# Getting Started with Create React App
+# Deere Project 4 - Front End
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
+This app is meant to simulate the Yu-Gi-Oh! Trading Card Game, a card-based battle game that is basically just glorified math. It is a simplified version, with normal, non-effect monsters and minimal spell/trap cards to make project completion possible. More of the game's logic (ex. effect monsters) will be added as a gold plan.
 
-## Available Scripts
+## The Plan
+- Wireframe:
+![](./planning/wireframe.jpg)
 
-In the project directory, you can run:
+## The Approach
+For a user's sake, building the deck was meant to be a simple process. As such, I did't imagine it having very many screens. Within those few screens, a user should be able to:
 
-### `npm start`
+- Sign up for a new deck building account or login to an existing one
+- Retitle the name of their decks for clarity
+- Add and delete decks
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+By clicking on each deck entry, the app will then display the cards in that particular deck. Once there, they can likewise:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Add a pre-built card to their deck
+- Delete cards
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Because the back-end utilizes a Deck and Card structure, it would therefore make sense to have Deck and Card components. These would serve as objects in the game, where one would be able to draw cards and view them. More importantly, because the user would like to play with their own deck versus a randomly generated one, EditDeck and EditCard components were added to provide this customization.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+    getDecks = async() => {
+        const response = await axios(`${backendUrl}/decks/${this.props.userId}`)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+        this.setState({
+            decks: response.data.decks
+        })
+    }
 
-### `npm run eject`
+    addNewDeck = async(e) => {
+        if (e.target.name.value) {
+            await axios.post(`${backendUrl}/users/${this.props.userId}/newdeck`, {
+                name: e.target.name.value
+            })
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+            this.getDecks()
+        }
+    }
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    deleteDeck = async(id) => {
+        await axios.delete(`${backendUrl}/decks/${id}`)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+        this.getDecks()
+    }
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+    updateDeckName = async(e, id) => {
+        await axios.put(`${backendUrl}/decks/${id}`, {
+            name: e.target.value
+        })
 
-## Learn More
+        this.getDecks()
+    }
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
