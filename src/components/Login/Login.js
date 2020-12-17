@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 // const backendUrl = 'http://localhost:3000/api'
-const backendUrl = 'https://orona-yugioh-backend.herokuapp.com/'
+const backendUrl = 'https://cors-anywhere.herokuapp.com/https://orona-yugioh-backend.herokuapp.com/api'
 
 function Login(props) {
   const [username, setUsername] = useState("");
@@ -35,7 +35,12 @@ function Login(props) {
     const user = { username, password };
     // send the username and password to the server
     const response = await axios.post(`${backendUrl}/auth/login`,
-      user
+      user, {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          'Access-Control-Allow-Methods' : 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+        }
+      }
     );
     // set the state of the user
     setUser(response.data);

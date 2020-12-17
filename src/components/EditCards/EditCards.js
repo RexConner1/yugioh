@@ -6,7 +6,7 @@ import axios from 'axios';
 import './EditCards.css';
 
 // const backendUrl = 'http://localhost:3000/api'
-const backendUrl = 'https://orona-yugioh-backend.herokuapp.com/'
+const backendUrl = 'https://cors-anywhere.herokuapp.com/https://orona-yugioh-backend.herokuapp.com/api'
 
 class EditCards extends Component {
     constructor() {
@@ -23,7 +23,12 @@ class EditCards extends Component {
     }
 
     getCardsForDeck = async() => {
-        const response = await axios(`${backendUrl}/decks/deck/${this.props.match.params.id}`)
+        const response = await axios(`${backendUrl}/decks/deck/${this.props.match.params.id}`, {
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                'Access-Control-Allow-Methods' : 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+            }
+        })
 
         this.setState({
             cards: response.data.deck
@@ -31,7 +36,12 @@ class EditCards extends Component {
     }
 
     getAllCards = async() => {
-        const response = await axios(`${backendUrl}/cards`)
+        const response = await axios(`${backendUrl}/cards`, {
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                'Access-Control-Allow-Methods' : 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+            }
+        })
 
         this.setState({
             toSelect: response.data.allCards
@@ -41,7 +51,12 @@ class EditCards extends Component {
     addCardToDeck = async(id) => {
         await axios.post(`${backendUrl}/decks/${this.props.match.params.id}/addcard`, {
             deckId: this.props.match.params.id,
-            cardId: id
+            cardId: id,
+        }, {
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                'Access-Control-Allow-Methods' : 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+            }
         })
 
         this.getCardsForDeck()
@@ -49,7 +64,12 @@ class EditCards extends Component {
 
     deleteCardFromDeck = async(cardId) => {
         // console.log(`${backendUrl}/decks/${this.props.match.params.id}/removecard`)
-        await axios.delete(`${backendUrl}/decks/${cardId}/removecard`)
+        await axios.delete(`${backendUrl}/decks/${cardId}/removecard`, {
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                'Access-Control-Allow-Methods' : 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+            }
+        })
 
         this.getCardsForDeck()
     }

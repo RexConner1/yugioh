@@ -5,7 +5,7 @@ import axios from 'axios';
 import './EditDecks.css';
 
 // const backendUrl = 'http://localhost:3000/api'
-const backendUrl = 'https://orona-yugioh-backend.herokuapp.com/'
+const backendUrl = 'https://cors-anywhere.herokuapp.com/https://orona-yugioh-backend.herokuapp.com/api'
 
 class EditDecks extends Component {
     constructor() {
@@ -20,7 +20,12 @@ class EditDecks extends Component {
     }
 
     getDecks = async() => {
-        const response = await axios(`${backendUrl}/decks/${this.props.userId}`)
+        const response = await axios(`${backendUrl}/decks/${this.props.userId}`, {
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                'Access-Control-Allow-Methods' : 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+            }
+        })
 
         this.setState({
             decks: response.data.decks
@@ -31,6 +36,11 @@ class EditDecks extends Component {
         if (e.target.name.value) {
             await axios.post(`${backendUrl}/users/${this.props.userId}/newdeck`, {
                 name: e.target.name.value
+            }, {
+                headers: {
+                    "Access-Control-Allow-Origin": "*",
+                    'Access-Control-Allow-Methods' : 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+                }
             })
 
             this.getDecks()
@@ -38,7 +48,12 @@ class EditDecks extends Component {
     }
 
     deleteDeck = async(id) => {
-        await axios.delete(`${backendUrl}/decks/${id}`)
+        await axios.delete(`${backendUrl}/decks/${id}`, {
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                'Access-Control-Allow-Methods' : 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+            }
+        })
 
         this.getDecks()
     }
@@ -46,6 +61,11 @@ class EditDecks extends Component {
     updateDeckName = async(e, id) => {
         await axios.put(`${backendUrl}/decks/${id}`, {
             name: e.target.value
+        }, {
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                'Access-Control-Allow-Methods' : 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+            }
         })
 
         this.getDecks()
