@@ -3,6 +3,9 @@
 ## Description
 This app is meant to simulate the Yu-Gi-Oh! Trading Card Game, a card-based battle game that is basically just glorified math. It is a simplified version, with normal, non-effect monsters and minimal spell/trap cards to make project completion possible. More of the game's logic (ex. effect monsters) will be added as a gold plan.
  
+## Application
+https://orona-yugioh-frontend.herokuapp.com/
+
 ## User Stories
 - To be able to easily create new decks
 - To be able to name those decks for clarity's sake
@@ -84,7 +87,15 @@ You can, on the other hand, associate the cards to a deck. In other words, you c
 ```
 
 
-This takes care the MVP of the project. Though the plan was to actually build a robust Yu-Gi-Oh game, the rules and implementation of the game logic is a project in itself. Essentially, this project turned into more of a Yu-Gi-Oh deck builder versus a fully functional game. However, that did not stop me from attempting a bit of logic...
+This takes care the MVP of the project. Though the plan was to actually build a robust Yu-Gi-Oh game, the rules and implementation of the game logic is a project in itself. Essentially, this project turned into more of a Yu-Gi-Oh deck builder versus a fully functional game. 
+
+However, this did not stop me from attempting a bit of logic. In about a day's worth of time, I set up a rough diagram of what I wanted the game to look like and how I wanted it to behave. I used this Yu-Gi-Oh field image as an example:
+
+- Wireframe:
+![](/board.jpg)
+
+
+Mainly, a user is able to draw random cards from their deck into their hand and "summon" those cards to the field.
 
 ## Technologies Used
 Javascript ES6   
@@ -94,6 +105,11 @@ Cloud-based Hosting (Heroku)
 Bootstrap
 
 ## Unsolved issues/Future Improvements
-
+- The Yu-Gi-Oh game itself was barely touched due to the complexity of the front and back end implementation. I would like to finish name, namelt:
+    - Associate the deck to the user's deck instead of random cards
+    - Align the CSS to neatly fit the images on screen
+    - Allow for two player or computer battle
+    - Once all components and game logic are running, allow computers to face each other, using random decks/cards in the process. The goal behind this is to create a Monte Carlo simulation in order to determine the most effective decks
+- Right now, only normal monsters are imported into my API. This works from an elementary standpoint, but allowing more cards, such as spell and trap cards, would be ideal for more realistic gameplay.
 
 
