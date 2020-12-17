@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from 'axios';
 
 import './EditCards.css';
@@ -21,11 +21,16 @@ class EditCards extends Component {
     getCardsForDeck = async() => {
         const response = await axios(`${backendUrl}/decks/deck/${this.props.match.params.id}`)
 
-        console.log(response.data.deck)
-
         this.setState({
             cards: response.data.deck
         })
+    }
+
+    deleteCardFromDeck = async(cardId) => {
+        // console.log(`${backendUrl}/decks/${this.props.match.params.id}/removecard`)
+        await axios.delete(`${backendUrl}/decks/${cardId}/removecard`)
+
+        this.getCardsForDeck()
     }
 
     render() {
@@ -38,7 +43,7 @@ class EditCards extends Component {
                     <td>{card.Stat.attack}</td>
                     <td>{card.Stat.defense}</td>
                     <td></td>
-                    <td><a href="/delete">Delete</a></td>
+                    <td><Link onClick={() => this.deleteCardFromDeck(card.id)}>Delete</Link></td>
                 </tr>
             )
         })
