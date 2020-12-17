@@ -5,7 +5,8 @@ import './Player.css';
 import Board from '../Board/Board';
 import Hand from '../Hand/Hand';
 
-const backendUrl = 'http://localhost:3000/api'
+// const backendUrl = 'http://localhost:3000/api'
+const backendUrl = 'https://orona-yugioh-backend.herokuapp.com/'
 
 class Player extends Component {
     constructor() {

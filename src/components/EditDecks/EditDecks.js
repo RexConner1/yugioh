@@ -4,7 +4,8 @@ import axios from 'axios';
 
 import './EditDecks.css';
 
-const backendUrl = 'http://localhost:3000/api'
+// const backendUrl = 'http://localhost:3000/api'
+const backendUrl = 'https://orona-yugioh-backend.herokuapp.com/'
 
 class EditDecks extends Component {
     constructor() {
