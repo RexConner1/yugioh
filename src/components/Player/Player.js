@@ -5,8 +5,6 @@ import './Player.css';
 import Board from '../Board/Board';
 import Hand from '../Hand/Hand';
 
-// const backendUrl = 'http://localhost:3000/api'
-
 class Player extends Component {
     constructor() {
         super();
