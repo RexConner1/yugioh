@@ -92,7 +92,7 @@ This takes care the MVP of the project. Though the plan was to actually build a 
 However, this did not stop me from attempting a bit of logic. In about a day's worth of time, I set up a rough diagram of what I wanted the game to look like and how I wanted it to behave. I used this Yu-Gi-Oh field image as an example:
 
 - Wireframe:
-![](/board.jpg)
+![](./board.jpg)
 
 
 Mainly, a user is able to draw random cards from their deck into their hand and "summon" those cards to the field.
