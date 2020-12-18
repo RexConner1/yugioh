@@ -28,7 +28,7 @@ class App extends Component {
     return (
       <div className="App">
         <header>
-          <Navigation loggedIn={this.state.userId} />
+          <Navigation />
         </header>
         <main>
           <Switch>

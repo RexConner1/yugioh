@@ -20,7 +20,7 @@ class EditDecks extends Component {
     }
 
     getDecks = async() => {
-        const response = await axios(`${backendUrl}/decks/${this.props.userId}`, {
+        const response = await axios(`${backendUrl}/decks/${JSON.parse(localStorage.getItem('user')).id}`, {
             headers: {
                 "Access-Control-Allow-Origin": "*",
                 'Access-Control-Allow-Methods' : 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
@@ -34,7 +34,7 @@ class EditDecks extends Component {
 
     addNewDeck = async(e) => {
         if (e.target.name.value) {
-            await axios.post(`${backendUrl}/users/${this.props.userId}/newdeck`, {
+            await axios.post(`${backendUrl}/users/${JSON.parse(localStorage.getItem('user')).id}/newdeck`, {
                 name: e.target.name.value
             }, {
                 headers: {
