@@ -74,6 +74,12 @@ class EditCards extends Component {
         this.getCardsForDeck()
     }
 
+    setImage = (id, visible) => {
+        const img = document.querySelector('.image')
+        img.style.visibility = visible ? 'visible' : 'hidden'
+        img.src = `https://storage.googleapis.com/ygoprodeck.com/pics/${id}.jpg`
+    }
+
     render() {
         const cards = this.state.cards.map(card => {
             return (
@@ -91,7 +97,7 @@ class EditCards extends Component {
 
         const cardOptions = this.state.toSelect.map(card => {
             return (
-                <Dropdown.Item key={card.id} onClick={() => this.addCardToDeck(card.id)}>{card.name}</Dropdown.Item>
+                <Dropdown.Item key={card.id} onMouseEnter={() => this.setImage(card.cardNumber, true)} onMouseLeave={() => this.setImage(card.cardNumber, false)} onClick={() => this.addCardToDeck(card.id)}>{card.name}</Dropdown.Item>
             )
         })
 
@@ -117,6 +123,10 @@ class EditCards extends Component {
                  <DropdownButton id="dropdown-basic-button" title="Add Card to Deck">
                      {cardOptions}
                  </DropdownButton>
+
+                <div className="float-left position-fixed">
+                    <img className="image" name="image" id="image" alt="card" />
+                </div>
           </div>
         );
     }
