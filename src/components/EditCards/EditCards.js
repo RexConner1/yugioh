@@ -91,7 +91,7 @@ class EditCards extends Component {
 
         const cardOptions = this.state.toSelect.map(card => {
             return (
-                <Dropdown.Item onClick={() => this.addCardToDeck(card.id)}>{card.name}</Dropdown.Item>
+                <Dropdown.Item key={card.id} onClick={() => this.addCardToDeck(card.id)}>{card.name}</Dropdown.Item>
             )
         })
 
