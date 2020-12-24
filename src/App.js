@@ -10,6 +10,9 @@ import EditDecks from './components/EditDecks/EditDecks'
 import EditCards from './components/EditCards/EditCards'
 import Navigation from "./components/Navigation/Navigation";
 
+const backendUrl = 'http://localhost:3000/api'
+// const backendUrl = 'https://backend-yugioh-thing.herokuapp.com/api'
+
 class App extends Component {
   constructor() {
     super()
