@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-// const backendUrl = 'http://localhost:3000/api'
-const backendUrl = 'https://backend-yugioh-thing.herokuapp.com/api'
+const backendUrl = 'http://localhost:3000/api'
+// const backendUrl = 'https://backend-yugioh-thing.herokuapp.com/api'
 
 function Login(props) {
   const [username, setUsername] = useState("");
