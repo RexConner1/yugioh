@@ -56,7 +56,7 @@ function Login(props) {
   if (user) {
     return (
       <div>
-        {user.name} is loggged in
+        {user.name} is logged in
         <button onClick={handleLogout}>logout</button>
       </div>
     );
